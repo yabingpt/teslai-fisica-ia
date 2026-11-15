@@ -1,2 +1,2 @@
-@media(max-width:560px){.welcome-top{top:18px;left:17px}.welcome-center{height:42vh;margin-top:-25px}.welcome-character{width:min(250px,68vw)}.welcome-orbit{width:80vw;height:38vh}.orbit-two{width:90vw;height:29vh}.welcome-speech{right:-4px;bottom:-8px;width:min(225px,58vw)}.welcome-title h1{font-size:52px}.welcome-title>p{font-size:10px;max-width:290px}.welcome-hint{bottom:18px}}
-.metrics-four{grid-template-columns:repeat(2,minmax(0,1fr))}.numeric-answer{display:flex;align-items:center;gap:8px}.numeric-answer input{flex:1;min-width:0}.numeric-answer .mono{font-size:9px;color:#aaa5c1}
+/* TeslAI universe and cloud dialogue layout; core rules are in styles.css. */
+.welcome-screen{isolation:isolate}.welcome-cloud,.main-cloud,.control-cloud,.option-cloud,.nav-cloud{overflow-wrap:anywhere}

@@ -3,32 +3,44 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#100b2d">
-  <meta name="description" content="TeslAI: aprende física e inteligencia artificial aplicada a los sistemas de tráfico con lecciones y simulaciones interactivas.">
-  <title>TeslAI · Física e IA en movimiento</title>
-  <link rel="stylesheet" href="styles.css?v=2">
-  <link rel="stylesheet" href="welcome.css?v=2">
+  <meta name="theme-color" content="#080918">
+  <meta name="description" content="TeslAI: experiencia galáctica para aprender física e inteligencia artificial aplicada al tráfico mediante globos de diálogo interactivos.">
+  <title>TeslAI 3.0 · Física e IA en movimiento</title>
+  <link rel="stylesheet" href="styles.css?v=11">
+  <link rel="stylesheet" href="welcome.css?v=6">
 </head>
-<body class="welcome-active">
-  <div class="cosmos" aria-hidden="true"><div class="nebula nebula-a"></div><div class="nebula nebula-b"></div><div class="stars"></div></div>
-  <section class="welcome-screen" id="welcome-screen" aria-label="Bienvenida a TeslAI"><div class="welcome-top"><span class="brand-mark">T<span>✳</span></span><span class="eyebrow">SISTEMA EDUCATIVO · EN LÍNEA</span></div><div class="welcome-center"><div class="welcome-orbit orbit-one"></div><div class="welcome-orbit orbit-two"></div><button class="welcome-character" id="welcome-character" aria-label="Iniciar experiencia con TeslAI"><img src="teslai-idle.png" alt="TeslAI listo para comenzar"></button><div class="welcome-speech" id="welcome-speech"><span class="eyebrow">ASISTENTE DE ESTUDIOS · LISTA</span><p>Toca a TeslAI para iniciar tu recorrido.</p></div></div><div class="welcome-title"><span class="hero-kicker">TEMA 06 · FÍSICA E IA</span><h1>TeslAI</h1><p>El futuro del tráfico empieza por entender cómo se mueve.</p><span class="welcome-authors">JOAN D <i>·</i> YABIN B.</span></div><span class="welcome-hint">TOCA EL PERSONAJE PARA INICIAR</span></section>
-  <div class="app-shell">
-    <aside class="sidebar" id="sidebar">
-      <a class="brand" href="#" data-action="home" aria-label="TeslAI, inicio"><span class="brand-mark">T<span>✳</span></span><span><b>TeslAI</b><small>LEARNING SYSTEM</small></span></a>
-      <div class="side-label">ESPACIO DE APRENDIZAJE</div>
-      <button class="side-link active" data-action="home"><span>⌂</span> Centro de misión <i></i></button>
-      <div class="side-label modules-label">RUTA DE APRENDIZAJE <span id="side-count">0/7</span></div>
-      <nav id="module-nav" aria-label="Módulos"></nav>
-      <div class="sidebar-bottom"><div class="mini-progress"><div class="progress-row"><span>Progreso total</span><strong id="progress-label">0%</strong></div><div class="progress-track"><span id="progress-fill"></span></div></div><button class="side-link" data-action="simulations"><span>⌁</span> Laboratorio <i></i></button><button class="side-link" data-action="bibliography"><span>▤</span> Archivo científico <i></i></button><button class="side-link" data-action="welcome"><span>↶</span> Pantalla inicial <i></i></button><div class="sidebar-foot">CONSTRUIDO PARA EXPLORAR <span>v 1.0 · OFFLINE READY</span></div></div>
-    </aside>
-    <main class="main-area">
-      <header class="topbar"><button class="icon-button menu-toggle" id="menu-toggle" aria-label="Abrir navegación">☰</button><div class="breadcrumb"><span>TESLAI</span><b>/</b><strong id="crumb">CENTRO DE MISIÓN</strong></div><div class="top-actions"><span class="system-status"><i></i> SISTEMA ACTIVO</span></div></header>
-      <div class="content-scroll" id="content-scroll"><div id="view"></div></div>
+<body data-idle-image="images/teslai-idle.png" data-talk-image="images/teslai-talking.png">
+  <div class="universe" aria-hidden="true"><div class="nebula nebula-blue"></div><div class="nebula nebula-violet"></div><div class="nebula nebula-pink"></div><div class="starfield"></div><div class="particles"></div></div>
+  <section class="welcome-screen" id="welcome-screen" aria-label="Inicio de TeslAI">
+    <div class="welcome-top"><span class="brand-spark">T<span>✳</span></span><span>TESLAI · UNIVERSO DE APRENDIZAJE</span></div>
+    <div class="welcome-stage">
+      <button class="welcome-character" id="welcome-character" aria-label="Iniciar recorrido con TeslAI"><img id="welcome-image" src="images/teslai-idle.png" alt="TeslAI en reposo"></button>
+
+      <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+    </div>
+    <div class="welcome-title"><h1>TeslAI</h1><button type="button" class="welcome-continue" id="welcome-continue">Clic para continuar...</button><div class="authors"><span>JOAN D</span><i>·</i><span>YABIN B.</span></div></div>
+  </section>
+  <div class="app" id="app" hidden>
+    <header class="world-header"><button class="brand-cloud cloud-small" data-action="menu" aria-label="Volver al menú principal">T ✳ <span>TESLAI</span></button><button class="progress-cloud cloud-small" id="progress-cloud" aria-label="Progreso de aprendizaje">RUTA · 0/7</button><button class="home-cloud cloud-small" data-action="welcome" aria-label="Volver a la pantalla inicial">INICIO</button></header>
+    <main class="learning-world" id="learning-world">
+      <section class="talk-space" aria-label="Conversación educativa con TeslAI">
+        <div class="character-anchor" id="character-anchor"><button class="character-button" id="character-button" aria-label="TeslAI, toca para escuchar"><img id="character-image" src="images/teslai-idle.png" alt="TeslAI en reposo"></button><span class="character-name">TESLAI</span></div>
+        <div class="main-cloud cloud" id="main-cloud" tabindex="0" aria-live="polite" aria-label="Globo de diálogo de TeslAI">
+          <span class="cloud-kicker" id="cloud-kicker">TESLAI · EXPLORACIÓN</span>
+          <h2 id="cloud-title">Un universo por descubrir</h2>
+          <div class="cloud-message" id="cloud-message"></div>
+          <div class="cloud-extras" id="cloud-extras"></div>
+          <button class="advance-prompt" id="advance-prompt" type="button" hidden>Clic para avanzar...</button>
+        </div>
+      </section>
+      <section class="simulation-space" id="simulation-space" aria-label="Escenario interactivo" hidden><canvas id="simulation-canvas" aria-label="Visualización de la simulación"></canvas><canvas id="chart-canvas" aria-label="Gráfica de flujo vehicular" hidden></canvas></section>
+      <section class="control-clouds" id="control-clouds" aria-label="Controles presentados por TeslAI" hidden></section>
+      <section class="option-clouds" id="option-clouds" aria-label="Opciones de diálogo con TeslAI"></section>
+      <nav class="cloud-navigation" id="cloud-navigation" aria-label="Navegación con TeslAI"></nav>
     </main>
+    <footer class="world-footer"><span>Una experiencia didáctica · Simulaciones simplificadas, no aptas para control vial real.</span><button class="reset-cloud cloud-small" id="reset-progress" type="button">REINICIAR PROGRESO</button></footer>
   </div>
-  <div class="mobile-backdrop" aria-hidden="true"></div>
-  <div class="toast" id="toast" role="status"></div>
-  <script src="app.js?v=2"></script>
+  <script src="curriculum.js?v=5"></script>
+  <script src="app.js?v=11"></script>
 </body>
 </html>
-

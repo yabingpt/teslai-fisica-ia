@@ -1,21 +1,18 @@
-# TeslAI
+# TeslAI 3.0
 
-Aplicación educativa estática sobre física e inteligencia artificial aplicada al tráfico. Está hecha con HTML, CSS y JavaScript sin servidor, fuentes externas ni dependencias de compilación, para que pueda publicarse directamente en GitHub Pages.
-
-## Publicación estática en GitHub Pages
-
-1. Copia el contenido de esta carpeta a la raíz de un repositorio o publícala como carpeta del repositorio.
-2. En GitHub, abre **Settings → Pages**.
-3. Selecciona **Deploy from a branch**, elige la rama y la carpeta que contiene `index.html` (raíz o `/docs`).
-4. Guarda y espera a que GitHub Pages publique el sitio.
-
-El sitio incluye únicamente la experiencia educativa estática y funciona en GitHub Pages.
+Plataforma educativa interactiva sobre física e inteligencia artificial aplicada al tráfico. La conversación, explicaciones, opciones, controles y navegación se comunican mediante globos con apariencia de nube y conexión visual con TeslAI.
 
 ## Contenido
 
-- Bienvenida interactiva y navegación guiada o libre.
-- Siete módulos con conceptos, ejemplos, fórmulas y preguntas con retroalimentación.
-- Cuatro simulaciones editables, incluida una intersección con fases seguras por eje.
-- Bibliografía con enlaces a publicaciones y fuentes técnicas.
+- Siete módulos universitarios introductorios con secuencias de globos, fundamentos matemáticos, interpretación física, ejemplos resueltos, cuestionarios y fuentes.
+- Navegación libre: cualquier tema, laboratorio o bibliografía se abre sin prerrequisitos.
+- Cuatro simulaciones ajustables: cinemática vehicular, reacción/frenado, flujo medido y comparación segura de control semafórico fijo y adaptativo por reglas.
+- Bibliografía APA 7 verificada con enlaces DOI, OpenStax, FHWA y el caso de TWT/MathWorks.
+- Progreso y registro de actividad local en el navegador (LocalStorage).
+- Ilustraciones originales de TeslAI sin modificaciones.
 
-Las simulaciones son modelos didácticos, no predicciones calibradas para operación vial real.
+## Abrir
+
+Abre `index.html` en un navegador moderno o sirve esta carpeta con un servidor estático. No requiere paquetes, API keys ni servicios de backend.
+
+Las simulaciones sirven para aprender relaciones físicas y no son predicciones calibradas para operar vías o semáforos reales.
