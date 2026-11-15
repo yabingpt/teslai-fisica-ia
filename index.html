@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#100b2d">
+  <meta name="description" content="TeslAI: aprende física e inteligencia artificial aplicada a los sistemas de tráfico con lecciones y simulaciones interactivas.">
+  <title>TeslAI · Física e IA en movimiento</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="welcome.css">
+</head>
+<body class="welcome-active">
+  <div class="cosmos" aria-hidden="true"><div class="nebula nebula-a"></div><div class="nebula nebula-b"></div><div class="stars"></div></div>
+  <section class="welcome-screen" id="welcome-screen" aria-label="Bienvenida a TeslAI"><div class="welcome-top"><span class="brand-mark">T<span>✳</span></span><span class="eyebrow">SISTEMA EDUCATIVO · EN LÍNEA</span></div><div class="welcome-center"><div class="welcome-orbit orbit-one"></div><div class="welcome-orbit orbit-two"></div><button class="welcome-character" id="welcome-character" aria-label="Iniciar experiencia con TeslAI"><img src="teslai-idle.png" alt="TeslAI listo para comenzar"></button><div class="welcome-speech" id="welcome-speech"><span class="eyebrow">ASISTENTE DE ESTUDIOS · LISTA</span><p>Toca a TeslAI para iniciar tu recorrido.</p></div></div><div class="welcome-title"><span class="hero-kicker">TEMA 06 · FÍSICA E IA</span><h1>TeslAI</h1><p>El futuro del tráfico empieza por entender cómo se mueve.</p><span class="welcome-authors">JOAN D <i>·</i> YABIN B.</span></div><span class="welcome-hint">TOCA EL PERSONAJE PARA INICIAR</span></section>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" data-action="home" aria-label="TeslAI, inicio"><span class="brand-mark">T<span>✳</span></span><span><b>TeslAI</b><small>LEARNING SYSTEM</small></span></a>
+      <div class="side-label">ESPACIO DE APRENDIZAJE</div>
+      <button class="side-link active" data-action="home"><span>⌂</span> Centro de misión <i></i></button>
+      <div class="side-label modules-label">RUTA DE APRENDIZAJE <span id="side-count">0/7</span></div>
+      <nav id="module-nav" aria-label="Módulos"></nav>
+      <div class="sidebar-bottom"><div class="mini-progress"><div class="progress-row"><span>Progreso total</span><strong id="progress-label">0%</strong></div><div class="progress-track"><span id="progress-fill"></span></div></div><button class="side-link" data-action="simulations"><span>⌁</span> Laboratorio <i></i></button><button class="side-link" data-action="bibliography"><span>▤</span> Archivo científico <i></i></button><button class="side-link" data-action="welcome"><span>↶</span> Pantalla inicial <i></i></button><div class="sidebar-foot">CONSTRUIDO PARA EXPLORAR <span>v 1.0 · OFFLINE READY</span></div></div>
+    </aside>
+    <main class="main-area">
+      <header class="topbar"><button class="icon-button menu-toggle" id="menu-toggle" aria-label="Abrir navegación">☰</button><div class="breadcrumb"><span>TESLAI</span><b>/</b><strong id="crumb">CENTRO DE MISIÓN</strong></div><div class="top-actions"><span class="system-status"><i></i> SISTEMA ACTIVO</span><button class="avatar-button" id="open-chat" aria-label="Abrir conversación">✳</button></div></header>
+      <div class="content-scroll" id="content-scroll"><div id="view"></div></div>
+    </main>
+  </div>
+  <div class="mobile-backdrop" aria-hidden="true"></div>
+  <div class="companion" id="companion"><div class="companion-copy" id="companion-copy"><span class="eyebrow">TESLAI · ASISTENTE</span><p id="companion-message">Sistema iniciado. Lista para explorar contigo.</p></div><button class="companion-image" id="companion-image" aria-label="Hablar con TeslAI"><img src="teslai-idle.png" alt="TeslAI, tu asistente de estudios"></button></div>
+  <button class="chat-launch" id="chat-launch" aria-label="Abrir panel de conversación"><span>✳</span><i>Pregúntame</i></button>
+  <section class="chat-panel" id="chat-panel" aria-label="Conversación con TeslAI" aria-hidden="true"><header><div class="chat-head-avatar">✳</div><div><b>Habla con TeslAI</b><small>FÍSICA · IA + BÚSQUEDA WEB</small></div><button class="icon-button" id="close-chat" aria-label="Minimizar conversación">−</button></header><div class="chat-context" id="chat-context">CONTEXTO · CENTRO DE MISIÓN</div><div class="chat-messages" id="chat-messages"><div class="message bot">Hola. Puedo ayudarte con conceptos, fórmulas y ejemplos de este tema. ¿Qué te gustaría aclarar?</div></div><form class="chat-form" id="chat-form"><input id="chat-input" autocomplete="off" placeholder="Escribe una pregunta…" aria-label="Tu pregunta"><button aria-label="Enviar pregunta">↑</button></form><div class="chat-note" id="chat-note">La IA y la búsqueda web requieren publicar el backend con su clave privada.</div><a class="chat-external" href="https://copilot.microsoft.com/" target="_blank" rel="noopener noreferrer">Continuar en Microsoft Copilot ↗</a></section>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
+
