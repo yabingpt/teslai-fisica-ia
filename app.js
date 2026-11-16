@@ -3,7 +3,7 @@
  const IDLE=document.body.dataset.idleImage,TALK=document.body.dataset.talkImage;
  const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
  const modules=window.TESLAI_MODULES,refs=window.TESLAI_REFS,key='teslai-progress-v2';
- const character=$('#character-image'),welcomeImage=$('#welcome-image'),main=$('#main-cloud'),copy=$('#cloud-copy'),scrollIndicator=$('#cloud-scroll-indicator'),title=$('#cloud-title'),message=$('#cloud-message'),extras=$('#cloud-extras'),advance=$('#advance-prompt'),options=$('#option-clouds'),controls=$('#control-clouds'),nav=$('#cloud-navigation'),simSpace=$('#simulation-space'),simCanvas=$('#simulation-canvas'),chartCanvas=$('#chart-canvas');
+ const character=$('#character-image'),welcomeImage=$('#welcome-image'),main=$('#main-cloud'),title=$('#cloud-title'),message=$('#cloud-message'),extras=$('#cloud-extras'),advance=$('#advance-prompt'),options=$('#option-clouds'),controls=$('#control-clouds'),nav=$('#cloud-navigation'),simSpace=$('#simulation-space'),simCanvas=$('#simulation-canvas'),chartCanvas=$('#chart-canvas');
  let progress={completed:{},activities:[]};
  try{const saved=JSON.parse(localStorage.getItem(key)||'{}');progress={...progress,...saved,completed:saved.completed||{},activities:Array.isArray(saved.activities)?saved.activities:[]};}catch{}
  let state={screen:'welcome',module:null,step:0,sim:null,simStep:0,values:{},raf:0};
@@ -13,16 +13,8 @@
  function activity(text){progress.activities.unshift({text,time:new Date().toLocaleString('es-MX',{dateStyle:'short',timeStyle:'short'})});progress.activities=progress.activities.slice(0,40);save();}
  function talk(on){[character,welcomeImage].forEach(img=>{if(img)img.src=on?TALK:IDLE;});$('#character-button').classList.toggle('speaking',on);}
   let talkTimer;function speak(){talk(true);clearTimeout(talkTimer);talkTimer=setTimeout(()=>talk(false),2500);}
-  function updateCloudScroll(){
-   const track=scrollIndicator?.querySelector('.cloud-scroll-track'),thumb=scrollIndicator?.querySelector('.cloud-scroll-thumb');if(!track||!thumb||!copy)return;
-   const maxScroll=copy.scrollHeight-copy.clientHeight,overflow=maxScroll>2;scrollIndicator.hidden=!overflow;
-   if(!overflow){scrollIndicator.dataset.position='start';return;}
-   const trackHeight=track.clientHeight,thumbHeight=Math.min(trackHeight,Math.max(18,trackHeight*copy.clientHeight/copy.scrollHeight)),ratio=Math.max(0,Math.min(1,copy.scrollTop/maxScroll));
-   thumb.style.height=`${thumbHeight}px`;thumb.style.transform=`translateY(${Math.max(0,trackHeight-thumbHeight)*ratio}px)`;
-   scrollIndicator.dataset.position=ratio>=.995?'end':ratio<=.005?'start':'middle';
-  }
   function fitMainCloud(){
-   const parent=main?.parentElement;if(!copy||!parent||!main.isConnected)return;
+   const copy=$('#cloud-copy'),parent=main?.parentElement;if(!copy||!parent||!main.isConnected)return;
    const maxSize=Math.max(260,Math.min(parent.clientWidth,780));
    let size=Math.min(maxSize,Math.max(Math.min(300,maxSize),Math.round(maxSize*.56)));
    for(let i=0;i<7;i++){
@@ -30,12 +22,8 @@
     if(copy.scrollHeight-copy.clientHeight<=2||size>=maxSize)break;
     size=Math.min(maxSize,Math.max(size+24,Math.ceil(copy.scrollHeight/.60)));
    }
-   updateCloudScroll();
   }
   let cloudFitFrame=0;function scheduleCloudFit(){if(cloudFitFrame)cancelAnimationFrame(cloudFitFrame);cloudFitFrame=requestAnimationFrame(()=>{cloudFitFrame=0;fitMainCloud();});}
-  copy.addEventListener('scroll',updateCloudScroll,{passive:true});
-  if('ResizeObserver'in window){const cloudResizeObserver=new ResizeObserver(updateCloudScroll);cloudResizeObserver.observe(copy);cloudResizeObserver.observe(main);}
-  new MutationObserver(scheduleCloudFit).observe(copy,{childList:true,subtree:true,characterData:true});
  function setBubble(kicker,heading,body,{formula='',example='',sources=[]}={}){
   $('#cloud-kicker').textContent=kicker;title.textContent=heading;
   message.innerHTML=body?`<p>${safe(body).replace(/\n/g,'<br>')}</p>`:'';extras.innerHTML='';

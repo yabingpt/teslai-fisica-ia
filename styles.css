@@ -178,11 +178,6 @@
 .nav-cloud,.cloud-small,.reset-cloud{background:#241d45ed;color:#e8e1ff;border-color:#bba9f466}
 .source-cloud{background:#fff;color:#523d79;border-color:#d7ceea}
 .control-cloud{background:linear-gradient(145deg,#fff,#faf9ff);color:#29233a;border-color:#d7ceea}
-.option-cloud{flex:0 1 240px;min-width:min(165px,100%);max-width:min(310px,100%);padding:16px 24px;background-image:linear-gradient(150deg,#fff,#f4f0ff)!important}
-.nav-cloud{min-width:90px;min-height:50px;padding:12px 18px;background-image:none!important}
-.source-cloud{min-height:42px;padding:10px 16px;background-image:linear-gradient(145deg,#fff,#faf9ff)!important}
-.control-cloud{min-height:112px;padding:22px 24px;background-image:linear-gradient(145deg,#fff,#faf9ff)!important}
-.cloud-small,.reset-cloud{min-height:38px;padding:9px 16px;background-image:none!important}
 .option-cloud:before,.nav-cloud:before,.source-cloud:before,.control-cloud:before,.cloud-small:before,.reset-cloud:before{
  content:""!important;display:block!important;position:absolute;z-index:-1;pointer-events:none;right:15%;top:-7px;width:24px;height:19px;
  background:inherit;border:1px solid currentColor;border-bottom:0;border-radius:55% 50% 42% 48%;opacity:.96;
@@ -212,33 +207,3 @@
  .character-button{width:96px;height:96px}
  .main-cloud{grid-column:2;grid-row:1}
 }
-
-/* Restore the hand-drawn cloud silhouette on small navigation and choice buttons. */
-.option-cloud,.nav-cloud,.source-cloud,.control-cloud,.cloud-small,.reset-cloud{border-radius:48% 52% 44% 56%/53% 46% 54% 47%!important}
-
-@media(orientation:landscape) and (max-height:540px){.main-cloud{width:min(100%,calc(100svh - 14px))}}
-
-/* Small copy uses the attached horizontal cloud template; large reading clouds keep their existing artwork. */
-.cloud-kicker,.advance-prompt,.formula-cloud,.example-cloud,.source-line,.control-hint,.character-name,.authors,.world-footer>span{
- background-color:transparent!important;background-image:url("images/small-text-cloud-template.png")!important;background-position:center;background-repeat:no-repeat;background-size:100% 100%;
- border:0!important;border-radius:0!important;box-shadow:none!important;filter:none!important;
-}
-.cloud-kicker{display:table;max-width:100%;padding:7px 12%;margin:0 0 4px -12%;}
-.advance-prompt{display:inline-block;min-height:34px;padding:9px 22px;text-align:center;}
-.advance-prompt[hidden]{display:none}
-.formula-cloud,.example-cloud{min-height:40px;padding:9px 12%;}
-.main-cloud .formula-cloud,.main-cloud .example-cloud{min-height:40px;padding:9px 12%;background:transparent url("images/small-text-cloud-template.png") center/100% 100% no-repeat!important;border:0!important;border-radius:0!important;box-shadow:none!important;filter:none!important;}
-.source-line{display:block;width:max-content;max-width:100%;min-height:34px;padding:8px 14%;}
-.control-hint{display:block;width:max-content;max-width:100%;min-height:32px;margin:7px auto 0;padding:7px 14%;}
-.character-name{min-height:28px;padding:6px 17%;}
-.authors{min-height:34px;padding:8px 22px;}
-.world-footer>span{min-height:34px;padding:8px 20px;}
-
-.cloud-scroll-indicator{position:absolute;z-index:3;top:19%;right:8%;bottom:19%;width:14px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;color:#604b8d;pointer-events:none}
-.cloud-scroll-indicator[hidden]{display:none}
-.cloud-scroll-arrow{font:700 9px/1 var(--mono);text-shadow:0 0 5px #fff}
-.cloud-scroll-track{position:relative;display:block;flex:1;width:3px;max-height:calc(100% - 18px);margin:2px 0;background:#75639a66;border-radius:99px;box-shadow:0 0 0 1px #fff9}
-.cloud-scroll-thumb{position:absolute;top:0;left:-2px;width:7px;min-height:18px;border-radius:99px;background:linear-gradient(180deg,#9477d0,#554279);box-shadow:0 0 0 1px #fff,0 1px 5px #38276188;transition:transform .12s ease-out,height .12s ease-out}
-.cloud-scroll-indicator[data-position="start"] .cloud-scroll-up,.cloud-scroll-indicator[data-position="end"] .cloud-scroll-down{opacity:.28}
-.cloud-scroll-indicator[data-position="middle"] .cloud-scroll-arrow{opacity:.82}
-@media(prefers-reduced-motion:reduce){.cloud-scroll-thumb{transition:none}}
