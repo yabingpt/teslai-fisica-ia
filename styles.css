@@ -215,3 +215,5 @@
 
 /* Restore the hand-drawn cloud silhouette on small navigation and choice buttons. */
 .option-cloud,.nav-cloud,.source-cloud,.control-cloud,.cloud-small,.reset-cloud{border-radius:48% 52% 44% 56%/53% 46% 54% 47%!important}
+
+@media(orientation:landscape) and (max-height:540px){.main-cloud{width:min(100%,calc(100svh - 14px))}}
