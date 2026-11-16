@@ -178,6 +178,11 @@
 .nav-cloud,.cloud-small,.reset-cloud{background:#241d45ed;color:#e8e1ff;border-color:#bba9f466}
 .source-cloud{background:#fff;color:#523d79;border-color:#d7ceea}
 .control-cloud{background:linear-gradient(145deg,#fff,#faf9ff);color:#29233a;border-color:#d7ceea}
+.option-cloud{flex:0 1 240px;min-width:min(165px,100%);max-width:min(310px,100%);padding:16px 24px;background-image:linear-gradient(150deg,#fff,#f4f0ff)!important}
+.nav-cloud{min-width:90px;min-height:50px;padding:12px 18px;background-image:none!important}
+.source-cloud{min-height:42px;padding:10px 16px;background-image:linear-gradient(145deg,#fff,#faf9ff)!important}
+.control-cloud{min-height:112px;padding:22px 24px;background-image:linear-gradient(145deg,#fff,#faf9ff)!important}
+.cloud-small,.reset-cloud{min-height:38px;padding:9px 16px;background-image:none!important}
 .option-cloud:before,.nav-cloud:before,.source-cloud:before,.control-cloud:before,.cloud-small:before,.reset-cloud:before{
  content:""!important;display:block!important;position:absolute;z-index:-1;pointer-events:none;right:15%;top:-7px;width:24px;height:19px;
  background:inherit;border:1px solid currentColor;border-bottom:0;border-radius:55% 50% 42% 48%;opacity:.96;
