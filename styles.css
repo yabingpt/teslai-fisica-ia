@@ -212,3 +212,6 @@
  .character-button{width:96px;height:96px}
  .main-cloud{grid-column:2;grid-row:1}
 }
+
+/* Restore the hand-drawn cloud silhouette on small navigation and choice buttons. */
+.option-cloud,.nav-cloud,.source-cloud,.control-cloud,.cloud-small,.reset-cloud{border-radius:48% 52% 44% 56%/53% 46% 54% 47%!important}
