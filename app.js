@@ -12,14 +12,25 @@
  function updateProgress(){$('#progress-cloud').textContent=`RUTA · ${Object.values(progress.completed).filter(Boolean).length}/7`;}
  function activity(text){progress.activities.unshift({text,time:new Date().toLocaleString('es-MX',{dateStyle:'short',timeStyle:'short'})});progress.activities=progress.activities.slice(0,40);save();}
  function talk(on){[character,welcomeImage].forEach(img=>{if(img)img.src=on?TALK:IDLE;});$('#character-button').classList.toggle('speaking',on);}
- let talkTimer;function speak(){talk(true);clearTimeout(talkTimer);talkTimer=setTimeout(()=>talk(false),5000);}
+  let talkTimer;function speak(){talk(true);clearTimeout(talkTimer);talkTimer=setTimeout(()=>talk(false),2500);}
+  function fitMainCloud(){
+   const copy=$('#cloud-copy'),parent=main?.parentElement;if(!copy||!parent||!main.isConnected)return;
+   const maxSize=Math.max(260,Math.min(parent.clientWidth,780));
+   let size=Math.min(maxSize,Math.max(Math.min(300,maxSize),Math.round(maxSize*.56)));
+   for(let i=0;i<7;i++){
+    main.style.setProperty('--cloud-size',`${size}px`);
+    if(copy.scrollHeight-copy.clientHeight<=2||size>=maxSize)break;
+    size=Math.min(maxSize,Math.max(size+24,Math.ceil(copy.scrollHeight/.60)));
+   }
+  }
+  let cloudFitFrame=0;function scheduleCloudFit(){if(cloudFitFrame)cancelAnimationFrame(cloudFitFrame);cloudFitFrame=requestAnimationFrame(()=>{cloudFitFrame=0;fitMainCloud();});}
  function setBubble(kicker,heading,body,{formula='',example='',sources=[]}={}){
   $('#cloud-kicker').textContent=kicker;title.textContent=heading;
   message.innerHTML=body?`<p>${safe(body).replace(/\n/g,'<br>')}</p>`:'';extras.innerHTML='';
   if(formula)extras.insertAdjacentHTML('beforeend',`<div class="formula-cloud">${safe(formula)}</div>`);
   if(example)extras.insertAdjacentHTML('beforeend',`<div class="example-cloud">${safe(example)}</div>`);
   if(sources.length){const found=sources.map(k=>refs.find(r=>r.key===k)).filter(Boolean);if(found.length)extras.insertAdjacentHTML('beforeend',`<div class="source-line">Fuentes: ${found.map(r=>`<a href="${r.url}" target="_blank" rel="noopener">${safe(r.key)}</a>`).join(' · ')}</div>`);}
-  speak();
+   scheduleCloudFit();speak();
  }
  function clearView(){if(state.raf){cancelAnimationFrame(state.raf);state.raf=0;}options.innerHTML='';controls.innerHTML='';controls.hidden=true;simSpace.hidden=true;chartCanvas.hidden=true;advance.hidden=true;$('#app').classList.toggle('menu-screen',state.screen==='menu'||state.screen==='pre-menu');}
  function cloud(label,handler,cls='option-cloud'){const b=document.createElement('button');b.type='button';b.className=cls;b.textContent=label;b.addEventListener('click',handler);return b;}
@@ -93,5 +104,5 @@ function showSignalAnalysis(i){state.screen='simulation-analysis';options.innerH
  const continueFromWelcome=()=>{speak();showPreMenu();};$('#welcome-character').addEventListener('click',continueFromWelcome);$('#welcome-continue').addEventListener('click',continueFromWelcome);$('#character-button').addEventListener('click',speak);
  $$('[data-action="menu"]').forEach(b=>b.addEventListener('click',showMenu));$$('[data-action="welcome"]').forEach(b=>b.addEventListener('click',showWelcome));
  $('#reset-progress').addEventListener('click',()=>{if(confirm('¿Borrar el registro y el progreso guardados en este dispositivo?')){progress={completed:{},activities:[]};save();showMenu();}});
- window.addEventListener('resize',()=>{if(state.screen==='simulation'||state.screen==='simulation-analysis')drawSimulation();});updateProgress();showWelcome();
+ window.addEventListener('resize',()=>{scheduleCloudFit();if(state.screen==='simulation'||state.screen==='simulation-analysis')drawSimulation();});updateProgress();showWelcome();
 })();
